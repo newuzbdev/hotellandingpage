@@ -42,15 +42,15 @@ export default function Navbar() {
         )}
       </Link>
       <Link
-        href="/platforms"
+        href="/roomsDetails"
         className={`text-sm font-medium relative ${
-          pathname === "/platforms"
+          pathname === "/roomsDetails"
             ? "text-primary font-bold"
             : "text-muted-foreground"
         } hover:text-primary`}
       >
         Xonalar
-        {pathname === "/platforms" && (
+        {pathname === "/roomsDetails" && (
           <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
         )}
       </Link>
