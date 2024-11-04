@@ -1,25 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+// import OurServices from "./ourServices";
 
 export default function AboutUs() {
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container px-4 py-16 md:py-18" id="about-us">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Text Content */}
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <span className="text-[32px] leading-10 font-medium text-gray-500">
+            <span className="text-[32px]  text-black leading-3 font-normal">
               Biz Haqimizda
             </span>
-            <div className="w-[126px] h-[1px] bg-gray-300"></div>
+            <Image src={"/images/aboutUsLine.svg"} alt="logo" width={135} height={16} />
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 w-[602px]">
             At Diamond Luxury Hotel
           </h2>
 
-          <p className="text-gray-600 leading-6 ">
+          <p className="text-gray-600 leading-6 w-[610px]">
             Bizning mehmonxonamiz — shinamlik va qulaylik uyg‘unlashgan maskan.
             Mehmonlarimizga yuksak darajadagi xizmat ko‘rsatish va unutilmas
             tajriba ulashish bizning bosh maqsadimizdir. Zamonaviy dizayndagi
@@ -39,8 +40,8 @@ export default function AboutUs() {
         </div>
 
         {/* Images */}
-        <div className="relative h-[500px] w-full">
-          <div className="absolute right-20 top-0 w-[326px] h-[436px] rounded-3xl overflow-hidden shadow-lg">
+        <div className="relative h-[500px] w-full ">
+          <div className="absolute right-0 top-10  w-[326px] h-[436px] rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/images/aboutUs1.jpg"
               alt="Hotel pool view"
@@ -48,7 +49,7 @@ export default function AboutUs() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-40 bottom-0  w-[270px] h-[360px] rounded-3xl overflow-hidden shadow-lg">
+          <div className="absolute left-40 bottom-0  w-[270px] h-[360px] rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/images/aboutUs1.jpg"
               alt="Hotel dining area"
@@ -57,6 +58,7 @@ export default function AboutUs() {
             />
           </div>
         </div>
+        {/* <OurServices /> */}
       </div>
     </section>
   );

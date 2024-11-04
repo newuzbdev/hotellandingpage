@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
-import { MapPin, PhoneCall, Search, Menu } from "lucide-react";
+import { MapPin, PhoneCall, Search, Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { Input } from "./ui/input";
 import { usePathname } from "next/navigation";
@@ -41,19 +47,22 @@ export default function Navbar() {
           <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
         )}
       </Link>
-      <Link
-        href="/roomsDetails"
-        className={`text-sm font-medium relative ${
-          pathname === "/roomsDetails"
-            ? "text-primary font-bold"
-            : "text-muted-foreground"
-        } hover:text-primary`}
-      >
-        Xonalar
-        {pathname === "/roomsDetails" && (
-          <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
-        )}
-      </Link>
+      <DropdownMenu>
+        <DropdownMenuTrigger className="flex items-center text-sm font-medium relative hover:text-primary">
+          Xonalar <ChevronDown className="ml-1 h-4 w-4" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>
+            <Link href="/roomsDetails/luxury">Luxury Room</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/roomsDetails/standard">Standard Room</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/roomsDetails/deluxe">Deluxe Room</Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
       <Link
         href="/contact"
         className={`text-sm font-medium relative ${
@@ -84,20 +93,20 @@ export default function Navbar() {
   );
 
   return (
-    <div className="flex flex-col w-full ">
+    <div className="flex flex-col">
       {/* Top Navigation */}
-      <div>
-        <nav className=" top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-sm  ">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-sm px-24">
+        <nav>
+          <div className="container px-4 py-4 flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold">
               Logo
             </Link>
-            <div className="hidden md:flex items-center space-x-4 flex-1 justify-center">
+            <div className="hidden md:flex pl-28">
               <form className="relative w-full max-w-2xl">
                 <Input
                   type="search"
                   placeholder="Qidiruv..."
-                  className="pl-10 pr-4 h-10 rounded-md bg-gray-100 w-full text-lg"
+                  className="pl-10 pr-4 h-[42px] rounded-md bg-gray-100 w-[610px] text-lg"
                 />
                 <Search
                   className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -106,7 +115,7 @@ export default function Navbar() {
               </form>
             </div>
             <div className="hidden md:flex items-center">
-              <MapPin size={18} className="mr-2" />
+              <MapPin size={18} className="mx-4" />
               <PhoneCall size={18} className="mr-2" />
               <span>+1 (123) 456-7890</span>
             </div>
@@ -133,7 +142,7 @@ export default function Navbar() {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="hidden md:flex h-14 items-center justify-center border-t">
+      <div className="hidden md:flex h-14 items-center justify-center border-t w-full mt-[76px]">
         <NavLinks />
       </div>
 

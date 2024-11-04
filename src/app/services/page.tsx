@@ -4,7 +4,7 @@ export default function Services() {
   const services = [
     {
       title: "Restoran va taomlar",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/services2.svg",
     },
     {
       title: "Spa va sog'liqni saqlash",
@@ -56,7 +56,7 @@ export default function Services() {
               key={index}
               className="flex flex-col items-center p-6 rounded-2xl border border-orange-100 hover:border-orange-200 transition-colors"
             >
-              <div className="relative w-48 h-48 mb-4">
+              <div className="relative w-72 h-48 mb-4">
                 <Image
                   src={service.image}
                   alt={service.title}

@@ -1,11 +1,15 @@
 import AboutUs from "@/components/aboutUs";
 import Hero from "@/components/hero";
+import OurServices from "@/components/ourServices";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <>
       <Hero />
-      <AboutUs />
-    </div>
+      <div className="overflow-hidden mx-[100px]">
+        <AboutUs />
+        <OurServices />
+      </div>
+    </>
   );
 }
