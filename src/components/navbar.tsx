@@ -71,7 +71,7 @@ export default function Navbar() {
             : "text-muted-foreground"
         } hover:text-primary`}
       >
-        Bog&apos;lanish
+        Bog'lanish
         {pathname === "/contact" && (
           <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
         )}
