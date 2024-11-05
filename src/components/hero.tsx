@@ -14,7 +14,6 @@ export default function Component() {
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
-      {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center text-white">
         <h1 className="text-[120px] leading-[104px] font-[400] mb-6 text-center font-['Zodiak']">
           ERA

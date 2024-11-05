@@ -1,8 +1,9 @@
-import Sidebar from "./sidebar";
 import Image from "next/image";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import RoomList from "./RoomList";
+import dynamic from "next/dynamic";
+const RoomList = dynamic(() => import("./RoomList"));
+const Sidebar = dynamic(() => import("./Sidebar"));
 
 export default function OurServices() {
   return (
@@ -15,7 +16,6 @@ export default function OurServices() {
               alt="logo"
               width={132}
               height={12}
-              loading="lazy"
             />
             <h1
               className="text-[48px] leading-[56px] font-normal "
@@ -28,7 +28,6 @@ export default function OurServices() {
               alt="logo"
               width={132}
               height={12}
-              loading="lazy"
               className="rotate-180"
             />
           </div>
@@ -42,7 +41,7 @@ export default function OurServices() {
           </p>
         </div>
       </div>
-      <div className="flex">
+      <div className="flex mx-[100px]">
         <Sidebar />
 
         <main className="flex-1 pl-5">
@@ -55,7 +54,6 @@ export default function OurServices() {
                     fill
                     objectFit="cover"
                     alt="Hotel Landing"
-                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
@@ -77,7 +75,6 @@ export default function OurServices() {
                     fill
                     objectFit="cover"
                     alt="Hotel Landing"
-                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
@@ -99,7 +96,6 @@ export default function OurServices() {
                     fill
                     objectFit="cover"
                     alt="Hotel Landing"
-                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                 </div>
@@ -121,7 +117,6 @@ export default function OurServices() {
                     fill
                     objectFit="cover"
                     alt="Hotel Landing"
-                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                 </div>

@@ -1,19 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-// import OurServices from "./ourServices";
 
 export default function AboutUs() {
   return (
     <section className="container px-4 py-16 md:py-18" id="about-us">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* Text Content */}
         <div className="space-y-6">
           <div className="flex items-center gap-4">
             <span className="text-[32px]  text-black leading-3 font-normal">
               Biz Haqimizda
             </span>
-            <Image src={"/images/aboutUsLine.svg"} alt="logo" width={135} height={16} loading="lazy"/>
+            <Image
+              src={"/images/aboutUsLine.svg"}
+              alt="logo"
+              width={135}
+              height={16}
+            />
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 w-[602px]">
@@ -58,7 +61,6 @@ export default function AboutUs() {
             />
           </div>
         </div>
-        {/* <OurServices /> */}
       </div>
     </section>
   );

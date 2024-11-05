@@ -73,7 +73,7 @@ export default function Navbar() {
             : ""
         } hover:text-primary`}
       >
-        Bog'lanish
+        Boglanish
         {pathname === "/contact" && (
           <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
         )}

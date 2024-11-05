@@ -37,7 +37,7 @@ const RoomList = () => {
   ];
 
   return (
-    <Card className="my-10 w-full divide-y">
+    <Card className="my-20 w-full divide-y">
       {rooms.map((room, index) => (
         <div
           key={index}
@@ -50,7 +50,6 @@ const RoomList = () => {
               layout="fill"
               objectFit="cover"
               className="transition-all duration-300 "
-              loading="lazy"
             />
           </div>
 
