@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { MapPin, PhoneCall, Search, Menu, ChevronDown } from "lucide-react";
+import { MapPin, PhoneCall, Search, Menu, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -17,16 +17,18 @@ import {
   SheetTrigger,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   const NavLinks = () => (
     <nav className="flex md:items-center gap-6 flex-col md:flex-row ">
       <Link
         href="/"
         className={`text-sm font-medium relative ${
-          pathname === "/" ? "text-primary font-bold" : "text-muted-foreground"
+          pathname === "/" ? "text-primary font-bold" : ""
         } hover:text-primary`}
       >
         Asosiy
@@ -39,7 +41,7 @@ export default function Navbar() {
         className={`text-sm font-medium relative ${
           pathname === "/services"
             ? "text-primary font-bold"
-            : "text-muted-foreground"
+            : ""
         } hover:text-primary`}
       >
         Xizmatlar
@@ -47,9 +49,9 @@ export default function Navbar() {
           <span className="absolute -bottom-2 left-0 w-[26px] h-0.5 bg-primary"></span>
         )}
       </Link>
-      <DropdownMenu>
+      <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger className="flex items-center text-sm font-medium relative hover:text-primary">
-          Xonalar <ChevronDown className="ml-1 h-4 w-4" />
+          Xonalar {isOpen ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
@@ -68,7 +70,7 @@ export default function Navbar() {
         className={`text-sm font-medium relative ${
           pathname === "/contact"
             ? "text-primary font-bold"
-            : "text-muted-foreground"
+            : ""
         } hover:text-primary`}
       >
         Bog'lanish
@@ -81,7 +83,7 @@ export default function Navbar() {
         className={`text-sm font-medium relative ${
           pathname === "/about"
             ? "text-primary font-bold"
-            : "text-muted-foreground"
+            : ""
         } hover:text-primary`}
       >
         Biz haqimizda

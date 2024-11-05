@@ -46,7 +46,7 @@ export default function OurServices() {
         <Sidebar />
 
         <main className="flex-1 pl-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             <Card className="relative flex flex-col rounded-lg overflow-hidden">
               <CardContent className="p-0 flex-grow">
                 <div className="relative w-full h-[287px] rounded-lg overflow-hidden">

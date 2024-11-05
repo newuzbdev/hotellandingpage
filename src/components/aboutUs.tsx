@@ -13,7 +13,7 @@ export default function AboutUs() {
             <span className="text-[32px]  text-black leading-3 font-normal">
               Biz Haqimizda
             </span>
-            <Image src={"/images/aboutUsLine.svg"} alt="logo" width={135} height={16} />
+            <Image src={"/images/aboutUsLine.svg"} alt="logo" width={135} height={16} loading="lazy"/>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-800 w-[602px]">
