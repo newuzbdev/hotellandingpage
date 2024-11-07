@@ -9,7 +9,6 @@ const Questions = dynamic(() => import("@/components/Questions"));
 const ContactUs = dynamic(() => import("@/components/ContactUs"));
 const RoomList = dynamic(() => import("@/components/RoomList"));
 
-
 export default function Home() {
   return (
     <>
@@ -18,14 +17,13 @@ export default function Home() {
         <AboutUs />
         <OurServices />
         <RoomList />
-
         <HotelLoaction />
         <Gallery />
       </div>
       <CustomerReviews />
       <div className="overflow-hidden mx-[100px]">
         <Questions />
-        <ContactUs/>
+        <ContactUs />
       </div>
     </>
   );

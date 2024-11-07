@@ -33,7 +33,7 @@ export default function CustomerReviews() {
   return (
     <div className="w-full px-4 py-12 relative mt-20 h-[538px]">
       <Image
-        src={"images/hotellanding.svg"}
+        src={"/images/mijozfikri.jpg"}
         alt="Background"
         fill
         className="object-cover brightness-50"
@@ -84,7 +84,10 @@ export default function CustomerReviews() {
                     />
                   ))}
                 </div>
-                <blockquote className="text-sm leading-relaxed">
+                <blockquote
+                  className="font-medium text-[18px] leading-[24px]"
+                  style={{ fontFamily: "Satoshi" }}
+                >
                   “{testimonial.text}”
                 </blockquote>
                 <div className="flex items-center gap-3">

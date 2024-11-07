@@ -44,7 +44,7 @@ export default function HotelLocation() {
                   fill
                   objectFit="cover"
                   alt="Hotel Landing"
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-125"
                 />
                 <div className="absolute inset-0 bg-black/40" />
               </div>
@@ -58,7 +58,7 @@ export default function HotelLocation() {
                   fill
                   objectFit="cover"
                   alt="Hotel Landing"
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-125"
                 />
                 <div className="absolute inset-0 bg-black/40" />
               </div>
@@ -72,7 +72,7 @@ export default function HotelLocation() {
                   fill
                   objectFit="cover"
                   alt="Hotel Landing"
-                  className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  className="transition-transform duration-300 ease-in-out group-hover:scale-125"
                 />
                 <div className="absolute inset-0 bg-black/40" />
               </div>

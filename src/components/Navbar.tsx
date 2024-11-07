@@ -55,7 +55,7 @@ export default function Navbar() {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <Link href="/roomsDetails/luxury">Luxury Room</Link>
+            <Link href="/roomsDetails">Standark bir kishilik</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href="/roomsDetails/standard">Standard Room</Link>
@@ -95,11 +95,11 @@ export default function Navbar() {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {/* Top Navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-sm px-24">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-90 backdrop-blur-sm px-28">
         <nav>
-          <div className="container px-4 py-4 flex items-center justify-between">
+          <div className=" px-4 py-4 flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold">
               Logo
             </Link>

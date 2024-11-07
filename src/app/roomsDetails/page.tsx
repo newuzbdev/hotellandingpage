@@ -1,139 +1,202 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Check, Wifi, Wind, Bath, Car } from "lucide-react"
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import { Bath, CircleParking, Coffee, Wifi, Wind } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-export default function RoomsDetails() {
+export default function Component() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const images = [
+    "/images/hotellanding.svg",
+    "/images/aboutUs.jpg",
+    "/images/hotellanding.svg",
+    "/images/hotellanding.svg",
+    "/images/hotellanding.svg",
+  ];
+
   const amenities = {
     roomFeatures: [
-      "Telefon",
-      "Panjara",
-      "Garderob",
-      "Oyna",
-      "Stullar",
-      "Minibar",
-      "Adl mebellar",
-      "Yostiqlar",
-      "Bepul ichimliklar",
+      ["Telefon", "Oyna", "Aqlli televizor"],
+      ["Pardalar", "Blanket", "Yostiqlar"],
+      ["Garderob", "Mini-bar", "Bepul ichimliklar"],
     ],
     security: [
-      "Gullargan eshiklar",
-      "Xavfs kaliti",
-      "24/7 yong'inga qarshi xizmati",
-      "Elektron kalit",
-      "Tutun detektori",
-      "24/7 mehmonxona xavfsizligi",
+      ["Gullargan eshiklar", "Xavfs kaliti"],
+      ["24/7 yong'inga qarshi xizmati", "Elektron kalit"],
+      ["Tutun detektori", "24/7 mehmonxona xavfsizligi"],
     ],
     commonAmenities: [
-      "Xizmatlar",
-      "Favqulodda chiqish",
-      "Gigiya vositalari",
-      "Dush",
-      "Yostiqlar",
-      "Soch quritish moslamasi",
-      "Sochiqlar",
-      "Shipaklar",
+      ["Xizmatlar", "Favqulodda chiqish", "Gigiya vositalari"],
+      ["Dush", "Yostiqlar", "Soch quritish moslamasi"],
+      ["Sochiqlar", "Shipaklar"],
     ],
-  }
+  };
 
   return (
-    <div className="container  px-4 py-8">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-serif">Standart bir kishilik</h1>
-        <Button className="bg-[#FFA724] hover:bg-[#FF9500] text-white px-8 rounded-full">
-          BAND OLISH
-        </Button>
-      </div>
+    <div className="mx-[125px] py-8">
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-3xl font-serif">Standart bir kishilik</h1>
+          <Button className="w-full bg-[#FFA724] text hover:bg-[#FF9500] sm:w-auto py-6 rounded-[24px] px-8">
+            BAND QILISH
+          </Button>
+        </div>
 
-      {/* Image Gallery */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div className="md:col-span-2">
-          <div className="relative h-[400px] rounded-lg overflow-hidden">
-            <Image
-             src="/images/hotellanding.svg"
-              alt="Luxury bedroom"
-              fill
-              className="object-cover"
-            />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <div className="relative h-[460px] w-full overflow-hidden rounded-l-lg">
+              <Image
+                src={images[0]}
+                alt="Main room view"
+                fill
+                className="object-cover cursor-pointer"
+                onClick={() => setSelectedImage(images[0])}
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:col-span-6">
+            {images.slice(1).map((image, index) => (
+              <div
+                key={index}
+                className="relative h-[220px] overflow-hidden cursor-pointer"
+                onClick={() => setSelectedImage(image)}
+              >
+                <Image
+                  src={image}
+                  alt={`Room view ${index + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="relative h-[180px] rounded-lg overflow-hidden">
-              <Image
-                src="/images/hotellanding.svg"
-                alt={`Room view ${i + 1}`}
-                fill
-                className="object-cover"
-              />
+
+        <Dialog
+          open={!!selectedImage}
+          onOpenChange={() => setSelectedImage(null)}
+        >
+          <DialogContent className="max-w-[90vw] p-0">
+            {/* <DialogHeader>
+              <DialogTitle className="p-4">Image View</DialogTitle>
+            </DialogHeader> */}
+            {selectedImage && (
+              <div className="relative w-full h-[80vh]">
+                <Image
+                  src={selectedImage}
+                  alt="Selected room view"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
+
+        <div className="flex flex-wrap gap-3">
+          {[
+            { icon: Coffee, text: "Yaxshi Nonushta" },
+            { icon: Wifi, text: "Bepul Wi-Fi" },
+            { icon: Wind, text: "Konditsioner" },
+            { icon: Bath, text: "Shaxsiy hammom" },
+            { icon: CircleParking, text: "Bepul avto turargoh" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-2 rounded-md bg-[#BAC6DC] px-4 py-3 text-sm"
+            >
+              <item.icon className="h-5 w-5 text-cards-background" />
+              <span className="text-cards-background font-normal text-base">
+                {item.text}
+              </span>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Amenity Badges */}
-      <div className="flex flex-wrap gap-4 mb-8">
-        {[
-          { icon: Check, text: "Yaxshi narsalar" },
-          { icon: Wifi, text: "Bepul Wi-Fi" },
-          { icon: Wind, text: "Konditsioner" },
-          { icon: Bath, text: "Shaxsiy hammom" },
-          { icon: Car, text: "Bepul avto turargoh" },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm"
-          >
-            <item.icon className="w-4 h-4" />
-            <span>{item.text}</span>
+        <p className="font-normal text-base leading-8">
+          MBOS Hotel - keng xonalar, sezgir xodimlar va yuqori sifatli xizmat
+          ko'rsatadigan qulay mehmonxona. Shahar markazida – Urganch shahrida
+          joylashganligi sababli uni mahalliy aholi va chet ellik sayyohlar
+          uchun topish oson. Yaqin atrofda do'konlar, kafe va restoranlar,
+          supermarketlar, savdo va ko'ngilochar markazlar, yurish masofasida
+          zarur bo'lgan barcha narsalar mavjud. Mehmonxonada ushbu toifadagi
+          xonalar soni 17 ta. Mehmonxonamiz kir yuvish va xonalarni kundalik
+          tozalash xizmatlarini taklif etadi. Xona xizmati, xavfsizlik,
+          qabulxona va avtoturargoh kunning istalgan vaqtida sizga xizmat
+          ko'rsatishdan mamnun bo'ladi. Siz tinchgina uxlashingiz mumkin, biz
+          sizning xavfsizligingiz uchun g'amxo'rlik qilamiz! Yo'laklardagi
+          yong'indan himoya qilish tizimi va videokuzatuv tizimi 24 soat
+          ishlaydi.
+        </p>
+        <div>
+          <Button className="w-[20px] bg-[#FFA724] text hover:bg-[#FF9500] sm:w-auto py-6 rounded-[24px] px-8">
+            BAND QILISH
+          </Button>
+        </div>
+        <div className="my-4 border-b w-full"></div>
+
+        <div className="space-y-5">
+          <h3 className="text-xl font-medium font-[Zodiak]">
+            Xona xususiyatlari
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-b py-4">
+            {amenities.roomFeatures.map((group, groupIndex) => (
+              <ul key={groupIndex} className="space-y-3">
+                {group.map((item, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <Image
+                      src="/images/check.svg"
+                      alt="check"
+                      width={20}
+                      height={20}
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
-        ))}
-      </div>
-
-      {/* Description */}
-      <p className="text-gray-600 mb-8 leading-relaxed">
-        MIOS Hotel - keng xonalar, sezgir xodimlar va yuqori sifatli xizmat ko'rsatishdan qulay mehmonxona. Shahar markazida — Urgench shahridagi joylashganigi sababli uni mahalliy
-        aholi va chet ellik sayohatlar uchun tanlashadi. Yaqin atrofda do'konlar, kafe va restoranlar joylashgandir, unda va ko'ngilochar maskanlari yaylab masofada joylashgan.
-      </p>
-
-      {/* Amenity Lists */}
-      <div className="grid md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="font-medium mb-4">Xona xususiyatlari</h3>
-          <ul className="space-y-2">
-            {amenities.roomFeatures.map((item, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{item}</span>
-              </li>
+          <h3 className="text-xl font-medium font-[Zodiak]">Xavfsizlik</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-b py-4">
+            {amenities.security.map((group, groupIndex) => (
+              <ul key={groupIndex} className="space-y-4">
+                {group.map((item, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <Image
+                      src="/images/check.svg"
+                      alt="check"
+                      width={20}
+                      height={20}
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-medium mb-4">Xavfsizlik</h3>
-          <ul className="space-y-2">
-            {amenities.security.map((item, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{item}</span>
-              </li>
+          </div>
+          <h3 className="text-xl font-medium font-[Zodiak]">
+            Hammam uchun qulayliklar
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3">
+            {amenities.commonAmenities.map((group, groupIndex) => (
+              <ul key={groupIndex} className="space-y-3">
+                {group.map((item, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <Image
+                      src="/images/check.svg"
+                      alt="check"
+                      width={20}
+                      height={20}
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-medium mb-4">Hammam uchun qulayliklar</h3>
-          <ul className="space-y-2">
-            {amenities.commonAmenities.map((item, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

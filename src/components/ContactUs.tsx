@@ -47,7 +47,7 @@ export default function ContactUs() {
         yordam berishga tayyormiz!
       </p>
       <div className="grid md:grid-cols-2 gap-8">
-      <Card className="w-full">
+        <Card className="w-full">
           <CardContent className="w-full h-[523px]">
             {/* <LoadScript
               googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
@@ -92,14 +92,12 @@ export default function ContactUs() {
               <div>
                 <Label htmlFor="phone">Telefon</Label>
                 <div className="flex">
-                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground">
-                    +998
-                  </span>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
-                    className="rounded-l-none h-24"
+                    className="rounded h-24"
+                    placeholder="+998"
                     required
                   />
                 </div>
@@ -107,7 +105,13 @@ export default function ContactUs() {
 
               <div>
                 <Label htmlFor="message">Xabar</Label>
-                <Textarea id="message" name="message" rows={4} required className="h-[231px]" />
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="h-[231px]"
+                />
               </div>
             </form>
           </CardContent>
