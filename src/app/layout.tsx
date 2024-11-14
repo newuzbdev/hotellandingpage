@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-// import dynamic from "next/dynamic";
-// const Footer = dynamic(() => import("@/components/Footer"));
+import dynamic from "next/dynamic";
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900",
+  weight: "100 900"
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -32,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <Navbar />
+        <Navbar />
         {children}
         <Footer />
       </body>

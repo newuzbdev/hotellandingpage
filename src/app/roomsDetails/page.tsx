@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Bath, CircleParking, Coffee, Wifi, Wind } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 export default function Component() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -34,17 +35,17 @@ export default function Component() {
   };
 
   return (
-    <div className="mx-[125px] py-8">
+    <div className="py-8 mx-4 sm:mx-8 md:mx-[120px] pt-10">
       <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mt-10 mt-12 lg:mt-24">
           <h1 className="text-3xl font-serif">Standart bir kishilik</h1>
           <Button className="w-full bg-[#FFA724] text hover:bg-[#FF9500] sm:w-auto py-6 rounded-[24px] px-8">
             BAND QILISH
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
-          <div className="md:col-span-6">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+          <div className="lg:col-span-6">
             <div className="relative h-[460px] w-full overflow-hidden rounded-l-lg">
               <Image
                 src={images[0]}
@@ -55,11 +56,11 @@ export default function Component() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:col-span-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:col-span-6">
             {images.slice(1).map((image, index) => (
               <div
                 key={index}
-                className="relative h-[220px] overflow-hidden cursor-pointer"
+                className="relative h-[220px] overflow-hidden cursor-pointer rounded-r-lg"
                 onClick={() => setSelectedImage(image)}
               >
                 <Image
@@ -77,10 +78,8 @@ export default function Component() {
           open={!!selectedImage}
           onOpenChange={() => setSelectedImage(null)}
         >
-          <DialogContent className="max-w-[90vw] p-0">
-            {/* <DialogHeader>
-              <DialogTitle className="p-4">Image View</DialogTitle>
-            </DialogHeader> */}
+          <DialogContent className="max-w-[90vw] sm:max-w-[69vw]">
+            <DialogTitle></DialogTitle>
             {selectedImage && (
               <div className="relative w-full h-[80vh]">
                 <Image
@@ -116,21 +115,21 @@ export default function Component() {
 
         <p className="font-normal text-base leading-8">
           MBOS Hotel - keng xonalar, sezgir xodimlar va yuqori sifatli xizmat
-          ko'rsatadigan qulay mehmonxona. Shahar markazida – Urganch shahrida
-          joylashganligi sababli uni mahalliy aholi va chet ellik sayyohlar
-          uchun topish oson. Yaqin atrofda do'konlar, kafe va restoranlar,
-          supermarketlar, savdo va ko'ngilochar markazlar, yurish masofasida
-          zarur bo'lgan barcha narsalar mavjud. Mehmonxonada ushbu toifadagi
-          xonalar soni 17 ta. Mehmonxonamiz kir yuvish va xonalarni kundalik
-          tozalash xizmatlarini taklif etadi. Xona xizmati, xavfsizlik,
-          qabulxona va avtoturargoh kunning istalgan vaqtida sizga xizmat
-          ko'rsatishdan mamnun bo'ladi. Siz tinchgina uxlashingiz mumkin, biz
-          sizning xavfsizligingiz uchun g'amxo'rlik qilamiz! Yo'laklardagi
-          yong'indan himoya qilish tizimi va videokuzatuv tizimi 24 soat
-          ishlaydi.
+          ko&apos;rsatadigan qulay mehmonxona. Shahar markazida – Urganch
+          shahrida joylashganligi sababli uni mahalliy aholi va chet ellik
+          sayyohlar uchun topish oson. Yaqin atrofda do&apos;konlar, kafe va
+          restoranlar, supermarketlar, savdo va ko&apos;ngilochar markazlar,
+          yurish masofasida zarur bo&apos;lgan barcha narsalar mavjud.
+          Mehmonxonada ushbu toifadagi xonalar soni 17 ta. Mehmonxonamiz kir
+          yuvish va xonalarni kundalik tozalash xizmatlarini taklif etadi. Xona
+          xizmati, xavfsizlik, qabulxona va avtoturargoh kunning istalgan
+          vaqtida sizga xizmat ko&apos;rsatishdan mamnun bo&apos;ladi. Siz
+          tinchgina uxlashingiz mumkin, biz sizning xavfsizligingiz uchun
+          g&apos;amxo&apos;rlik qilamiz! Yo&apos;laklardagi yong&apos;indan
+          himoya qilish tizimi va videokuzatuv tizimi 24 soat ishlaydi.
         </p>
         <div>
-          <Button className="w-[20px] bg-[#FFA724] text hover:bg-[#FF9500] sm:w-auto py-6 rounded-[24px] px-8">
+          <Button className="w-[10px] bg-[#FFA724] text hover:bg-[#FF9500] sm:w-28 py-6 rounded-[24px] px-16">
             BAND QILISH
           </Button>
         </div>

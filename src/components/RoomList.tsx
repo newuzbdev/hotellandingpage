@@ -37,23 +37,23 @@ const RoomList = () => {
   ];
 
   return (
-    <Card className="my-20 w-full divide-y">
+    <Card className="my-20 mx-4 sm:mx-4 md:mx-4 lg:mx-24 ">
       {rooms.map((room, index) => (
         <div
           key={index}
           className="relative flex overflow-hidden transition-all duration-100 group hover:bg-primary hover:text-white"
         >
-          <div className="absolute top-0 left-0 w-0 h-full bg-cover bg-center transition-all duration-300 group-hover:w-[237px] group-hover:h-[128px]  overflow-hidden">
+          <div className="absolute top-0 left-0 w-0 h-full bg-cover bg-center transition-all duration-300 hidden lg:block group-hover:w-[237px] group-hover:h-[128px] overflow-hidden">
             <Image
               src={room.image}
               alt={room.title}
               layout="fill"
               objectFit="cover"
-              className="transition-all duration-300 "
+              className="transition-all duration-300"
             />
           </div>
 
-          <div className="relative z-10 flex-1 px-4 group-hover:pl-[20%] transition-all duration-300">
+          <div className="relative z-10 flex-1 px-4 lg:group-hover:pl-[20%] transition-all duration-300">
             <div className="flex justify-between items-center h-[128px]">
               <div>
                 <h2

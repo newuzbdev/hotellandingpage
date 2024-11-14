@@ -11,20 +11,16 @@ const RoomList = dynamic(() => import("@/components/RoomList"));
 
 export default function Home() {
   return (
-    <>
+    <div className="my-10">
       <Hero />
-      <div className="overflow-hidden mx-[100px]">
-        <AboutUs />
-        <OurServices />
-        <RoomList />
-        <HotelLoaction />
-        <Gallery />
-      </div>
+      <AboutUs />
+      <OurServices />
+      <RoomList />
+      <HotelLoaction />
+      <Gallery />
       <CustomerReviews />
-      <div className="overflow-hidden mx-[100px]">
-        <Questions />
-        <ContactUs />
-      </div>
-    </>
+      <Questions />
+      <ContactUs />
+    </div>
   );
 }
